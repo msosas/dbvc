@@ -21,10 +21,14 @@ var sidebar = require('./routes/sidebar');
 var footer = require('./routes/footer');
 var deleteUser = require('./routes/delete-user');
 var savedUser = require('./routes/saved-user');
+var settings = require('./routes/settings');
 var gitStatus = require('./routes/git-status');
 var gitPull = require('./routes/git-pull');
 var gitPush = require('./routes/git-push');
 var gitCommit = require('./routes/git-commit');
+var applyFiles = require('./routes/apply-files');
+var revisions = require('./routes/revisions');
+
 
 
 var configDB = require('./models/database.js');
@@ -78,10 +82,14 @@ app.use('/sidebar', sidebar);
 app.use('/footer', footer);
 app.use('/delete-user',deleteUser);
 app.use('/saved-user',savedUser);
+app.use('/settings',settings);
 app.use('/git-status',gitStatus);
 app.use('/git-pull',gitPull);
 app.use('/git-push',gitPush);
 app.use('/git-commit',gitCommit);
+app.use('/apply-files',applyFiles);
+app.use('/revisions',revisions);
+
 
 /// error handlers
 

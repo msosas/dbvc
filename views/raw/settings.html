@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+  <link rel="icon" href="favicon.png">
+  <title>Data Base Version Control</title>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+  <!-- Mobile support -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Material Design fonts -->
+  <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto:300,400,500,700" type="text/css">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+  <!-- Bootstrap -->
+  <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Bootstrap Material Design -->
+  <link href="css/bootstrap-material-design.css" rel="stylesheet">
+  <link href="css/ripples.min.css" rel="stylesheet">
+
+  <!-- Dropdown.js -->
+  <link href="//cdn.rawgit.com/FezVrasta/dropdown.js/master/jquery.dropdown.css" rel="stylesheet">
+
+  <!-- Page style -->
+  <link href="css/index.css" rel="stylesheet">
+  <link href="css/loading.css" rel="stylesheet">
+
+  <!-- jQuery -->
+
+  <!--  JS  -->
+
+  <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+  <script src="js/parameters.js"></script>
+  <script src="js/dbSelect.js"></script>
+  <script src="js/settings.js"></script>
+  <script src="https://www.w3schools.com/lib/w3data.js"></script>
+
+</head>
+<body>
+
+  <!--  Navigation Bar  -->
+  <div id="navbar">
+    <script>$("#navbar").load("navbar");</script>
+  </div>
+
+  <div id="sidebar" style="left: 2%; position: absolute;">
+    <script>$("#sidebar").load("sidebar");</script>
+  </div>
+
+  <div class="container">
+    <div id="myTabContent" class="tab-content" style="margin-left: 20%; margin-top: 5%;">
+
+      <div class="panel panel-info">
+        <div class="panel-heading">
+          <h3 class="panel-title">Settings</h3>
+        </div>
+        <div id="panel-body-settings" class="panel-body">
+          <ul>
+            <legend>DB Connection</legend>
+            <li id="db-server"><b>Server: </b></li>
+            <li id="db-port"><b>Port: </b></li>
+          </ul>
+          <ul id="remote-list">
+            <legend>Remote Repositories &nbsp; <i style="cursor:pointer" data-toggle='modal' data-target='#new-remote-dialog' id='add-icon' class='material-icons'>add_circle_outline</i></legend>
+          </ul>
+          <!-- Loadded from settings.js -->
+        </div>
+      </div>
+
+      <div id="new-remote-dialog" class="modal fade" tabindex="-1">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+              <h4 class="modal-title" style="font-weight: bold">New Remote Repository</h4>
+            </div>
+            <div class="modal-body">
+              <form class="form-horizontal">
+                <fieldset>
+                  <div class="form-group">
+                    <label for="textArea" class="col-md-2 control-label">Alias</label>
+
+                    <div class="col-md-10">
+                      <textarea class="form-control" rows="1" id="alias-box"></textarea>
+                      <span class="help-block">Something like "upstream", "origin" or whatever</span>
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label for="textArea" class="col-md-2 control-label">URL</label>
+
+                    <div class="col-md-10">
+                      <textarea class="form-control" rows="1" id="url-box"></textarea>
+                      <span class="help-block">HTTP or SSH URL</span>
+                    </div>
+                  </div>
+                </fieldset>
+              </form>
+            </div>
+            <div class="modal-footer">
+              <button id="save-button" type="button" class="btn btn-default" data-dismiss="modal">Save</button>
+            </div>
+          </div>
+        </div>
+      </div>  
+
+    </div>
+  </div>
+
+
+
+  <!--  Scripts  -->
+  <!-- Twitter Bootstrap -->
+  <script src="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+  <!-- Material Design for Bootstrap -->
+  <script src="js/dist/material.js"></script>
+  <script src="js/dist/ripples.min.js"></script>
+  <script>
+    $.material.init();
+  </script>
+
+  <!-- Sliders -->
+  <script src="//cdnjs.cloudflare.com/ajax/libs/noUiSlider/6.2.0/jquery.nouislider.min.js"></script>
+
+  <!-- Dropdown.js -->
+  <script src="https://cdn.rawgit.com/FezVrasta/dropdown.js/master/jquery.dropdown.js"></script>
+  <script>
+    $("#dropdown-menu select").dropdown();
+  </script>
+
+</body>
+<div id="footer">
+  <script>$("#footer").load("footer");</script>
+</div>
+</html>

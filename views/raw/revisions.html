@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+  <link rel="icon" href="favicon.png">
+
+  <title>Data Base Version Control</title>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+  <!-- Mobile support -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Material Design fonts -->
+  <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto:300,400,500,700" type="text/css">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+  <!-- Bootstrap -->
+  <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Bootstrap Material Design -->
+  <link href="css/bootstrap-material-design.css" rel="stylesheet">
+  <link href="css/ripples.min.css" rel="stylesheet">
+
+  <!-- Dropdown.js -->
+  <link href="//cdn.rawgit.com/FezVrasta/dropdown.js/master/jquery.dropdown.css" rel="stylesheet">
+
+  <!-- Page style -->
+  <link href="css/index.css" rel="stylesheet">
+  <link href="css/loading.css" rel="stylesheet">
+
+  <!-- jQuery -->
+
+  <!--  JS  -->
+
+  <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+  <script src="js/parameters.js" ></script>
+  <script src="js/dbSelect.js" ></script>
+  <script src="js/revisions.js" ></script>
+  <script src="https://www.w3schools.com/lib/w3data.js"></script>
+
+</head>
+<body>
+
+  <!--  Navigation Bar  -->
+  <div id="navbar">
+    <script>$("#navbar").load("navbar");</script>
+  </div>
+
+  <div id="sidebar" style="left: 2%; position: absolute;">
+    <script>$("#sidebar").load("sidebar");</script>
+  </div>
+
+  <div class="container" id="main-title" style="left:40%; position: absolute;">
+    <!-- Content from parameters.js -->
+  </div>
+  <div class="container">
+    
+    <div id="myTabContent" class="tab-content" style="margin-left: 20%; margin-top: 5%;">
+      
+      <div id="loadingDiv" style="position: absolute; right: 50%; top: 50%; left: 50%;">   
+        <div class="spinningCircle"></div>
+      </div>
+
+      
+      <div class="jumbotron" >
+        <h1 style="font-size: 40px;">Revisions</h1>
+        <div class="status_content">
+          <legend>Enter your code</legend>
+          <form id="form_commit" class="form-horizontal" method="post">
+            <fieldset>
+              <textarea id="revision-code" rows="10" cols="100">  </textarea>
+              <textarea placeholder="File Name" class="form-control" rows="1" id="file-name" name="file-name" oninput="mandatoryField()" required></textarea>
+              <div class="form-group">      
+                <div class="form-group">
+                  <div class="col-md-10 col-md-offset-4">
+                    <button id="close-button" type="button" class="btn btn-default"> Cancel </button>
+                    <button id="save-button" type="button" disabled="true" class="btn btn-primary">Save</button>
+                  </div>
+                </div>
+              </fieldset>
+            </form>    
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!--  Scripts  -->
+    <!-- Twitter Bootstrap -->
+    <script src="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+    <!-- Material Design for Bootstrap -->
+    <script src="js/dist/material.js"></script>
+    <script src="js/dist/ripples.min.js"></script>
+    <script>
+      $.material.init();
+      $("#close-button").on("click", function () { $(".jumbotron").hide()}); 
+      function mandatoryField() {   
+        var fileName = document.getElementsByName("file-name")[0].value;
+        if (fileName !== "") {
+         $(":button, input[type='button']").prop('disabled', false);
+       }
+       else {
+        $(":button, input[type='button']").prop('disabled', true);
+      }
+    }; 
+  </script>
+
+  <!-- Sliders -->
+  <script src="//cdnjs.cloudflare.com/ajax/libs/noUiSlider/6.2.0/jquery.nouislider.min.js"></script>
+
+  <!-- Dropdown.js -->
+  <script src="https://cdn.rawgit.com/FezVrasta/dropdown.js/master/jquery.dropdown.js"></script>
+  <script>
+    $("#dropdown-menu select").dropdown();
+  </script>
+
+</body>
+<div id="footer">
+  <script>$("#footer").load("footer");</script>
+</div>
+</html>

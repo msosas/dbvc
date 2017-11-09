@@ -1,35 +1,36 @@
 <!DOCTYPE html>
 <html>
-<head>
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-	<link rel="stylesheet" type="text/css" href="tools.css">
-	<script src="http://code.jquery.com/jquery-3.2.1.min.js" crossorigin="anonymous"></script>
-	<title>My Web Page</title>
-</head>
-<body>
-
-	<div class="container">
-		<div id="login">
-			<div class="panel panel-default">
-				<div class="panel-heading">User Log In</div>
-				<div class="panel-body">
-					<form action="/login" method="post">
-						<div class="form-group">
-							<label for="email">Email</label>
-							<input type="email" class="form-control" id="email" name="user" required>
-						</div>
-						<div class="form-group">
-							<label for="pwd">Password:</label>
-							<input type="password" class="form-control" id="pwd" name="password" required="">
-						</div>
-						<div class="checkbox">
-							<label><input type="checkbox"> Remember me</label>
-						</div>
-						<button type="submit" class="btn btn-default">Submit</button>
-					</form>
-				</div>
-			</div>
-		</div>
-	</div>
-</body>
+  <head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="css/login.css">
+    <script src="http://code.jquery.com/jquery-3.2.1.min.js" crossorigin="anonymous"></script>
+    <title>My Web Page</title>
+  </head>
+  <body>
+    <div class="container">
+      <div id="login">
+        <div class="panel panel-default">
+          <div class="panel-heading">User Log In</div>
+          <div class="panel-body">
+            <form action="/login" method="post">
+              <div class="form-group">
+                <label for="email">Email</label>
+                <input id="email" type="email" name="username" required="" class="form-control">
+              </div>
+              <div class="form-group">
+                <label for="pwd">Password:</label>
+                <input id="pwd" type="password" name="password" required="" class="form-control">
+              </div>
+              <div class="checkbox">
+                <label>
+                  <input type="checkbox"> Remember me
+                </label>
+              </div>
+              <button type="submit" class="btn btn-default">Submit</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
 </html>

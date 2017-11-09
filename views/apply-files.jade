@@ -1,0 +1,110 @@
+doctype html
+html
+  head
+    link(rel='icon', href='favicon.png')
+    title Data Base Version Control
+    meta(charset='utf-8')
+    meta(http-equiv='X-UA-Compatible', content='IE=edge')
+    // Mobile support
+    meta(name='viewport', content='width=device-width, initial-scale=1')
+    // Material Design fonts
+    link(rel='stylesheet', href='http://fonts.googleapis.com/css?family=Roboto:300,400,500,700', type='text/css')
+    link(href='https://fonts.googleapis.com/icon?family=Material+Icons', rel='stylesheet')
+    // Bootstrap
+    link(href='//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css', rel='stylesheet')
+    // Bootstrap Material Design
+    link(href='css/bootstrap-material-design.css', rel='stylesheet')
+    link(href='css/ripples.min.css', rel='stylesheet')
+    // Dropdown.js
+    link(href='//cdn.rawgit.com/FezVrasta/dropdown.js/master/jquery.dropdown.css', rel='stylesheet')
+    // Page style
+    link(href='css/index.css', rel='stylesheet')
+    link(href='css/loading.css', rel='stylesheet')
+    // jQuery
+    // JS
+    script(src='//code.jquery.com/jquery-1.11.1.min.js')
+    script(src='js/parameters.js')
+    script(src='js/dbSelect.js')
+    script(src='js/applyFiles.js')
+    script(src='https://www.w3schools.com/lib/w3data.js')
+  body
+    // Navigation Bar
+    #navbar
+      script.
+        $("#navbar").load("navbar");
+    #sidebar(style='left: 2%; position: absolute;')
+      script.
+        $("#sidebar").load("sidebar");
+    #main-title.tab-content(style='left:40%; right:60%; position: absolute;')
+      // Content from parameters.js
+    .container
+      #myTabContent.tab-content(style='margin-left: 20%; margin-top: 5%;')
+        .jumbotron(style='position: absolute; width: 915px;')
+          #loadingDiv(style='position: absolute; right: 50%; top: 50%; left: 50%;')
+            .spinningCircle
+          h1(style='font-size: 40px;')
+            | Update with 
+            b local
+            |  files
+          p  
+          .togglebutton
+            label
+              input#sp-toggle(type='checkbox', unchecked='')
+              |  Stored Procedures
+          p  
+          .togglebutton
+            label
+              input#tables-toggle(type='checkbox', unchecked='', onchange='showBrowser();')
+              |  Tables
+          .status_content
+            legend
+            form#form_update.form-horizontal(method='post')
+              fieldset
+                .form-group
+                  .col-md-10
+                    label.col-md-2.control-label(for='inputFile') File
+                    .col-md-10
+                      input#file-name.form-control(type='text', readonly='', placeholder='Browse...')
+                      input#input-file(type='file', multiple='', disabled='true', onmouseleave='mandatoryField()')
+                .form-group
+                  .col-md-10.col-md-offset-4
+                    button#close-button.btn.btn-default(type='button')  Cancel 
+                    button#update-button.btn.btn-primary(type='button') Update
+    // Scripts
+    // Twitter Bootstrap
+    script(src='//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/js/bootstrap.min.js')
+    // Material Design for Bootstrap
+    script(src='js/dist/material.js')
+    script(src='js/dist/ripples.min.js')
+    script.
+      $.material.init();
+      $("#close-button").on("click", function () { $(".jumbotron").hide()});
+      function showBrowser() {
+      $(":button, input[type='button']").prop('disabled', false);
+      if($("#tables-toggle").prop("checked")) {
+      $("#input-file").prop("disabled", false);
+      if($("#file-name").val() == "") {
+      $(":button, input[type='button']").prop('disabled', true);
+      }
+      }
+      else {
+      $("#input-file").prop("disabled", true);
+      }
+      };
+      function mandatoryField() {
+      if($("#file-name").val() == "" && $("#tables-toggle").prop('checked')) {
+      $(":button, input[type='button']").prop('disabled', true);
+      }
+      else {
+      $(":button, input[type='button']").prop('disabled', false);
+      }
+      };
+    // Sliders
+    script(src='//cdnjs.cloudflare.com/ajax/libs/noUiSlider/6.2.0/jquery.nouislider.min.js')
+    // Dropdown.js
+    script(src='https://cdn.rawgit.com/FezVrasta/dropdown.js/master/jquery.dropdown.js')
+    script.
+      $("#dropdown-menu select").dropdown();
+  #footer
+    script.
+      $("#footer").load("footer");
