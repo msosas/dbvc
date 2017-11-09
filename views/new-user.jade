@@ -1,0 +1,47 @@
+doctype html
+html
+  head
+    link(rel='stylesheet', href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css')
+    link(rel='stylesheet', type='text/css', href='stylesheets/custom-stylesheet.css')
+    link(rel='stylesheet', type='text/css', href='stylesheets/simple-sidebar.css')
+    script(src='http://code.jquery.com/jquery-3.2.1.min.js', crossorigin='anonymous')
+    script(type='text/javascript', src='https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.5/umd/popper-utils.min.js')
+    title My Web Page
+  body
+    #navbar
+      script.
+        $("#navbar").load("navbar");
+    .container
+      #sidebar
+        script.
+          $("#sidebar").load("sidebar");
+      #new-user
+        .panel.panel-default
+          .panel-heading New User
+          .panel-body
+            form.form-horizontal(action='/save-user', method='post')
+              .form-group
+                label.control-label.col-sm-2 Name
+                .col-sm-10
+                  input#name.form-control(type='text', name='name', placeholder='Enter name')
+              .form-group
+                label.control-label.col-sm-2 Last Name
+                .col-sm-10
+                  input#lstname.form-control(type='text', name='lastname', placeholder='Enter last name')
+              .form-group
+                label.control-label.col-sm-2(for='email') Email:
+                .col-sm-10
+                  input#email.form-control(type='email', name='username', placeholder='Enter email', required='')
+              #org-pass.form-group
+                label.control-label.col-sm-2(for='pwd') Password:
+                .col-sm-10
+                  input#pwd.form-control(type='password', name='password', placeholder='Enter password', required='')
+              .form-group
+                label.control-label.col-sm-2(for='pwd') Repeat Password:
+                .col-sm-10
+                  input#pwd2.form-control(type='password', name='reppassword', placeholder='Enter password', onblur='matchPasswords()')
+                  p#rep-pass(style='font-size: 12px; color: red')
+              .form-group
+                .col-sm-offset-1.col-sm-10
+                  button.btn.btn-default(type='submit') Submit
+    script(type='text/javascript', src='javascripts/matchpasswords.js')

@@ -1,0 +1,50 @@
+.panel.panel-primary
+  .panel-heading
+    h3.panel-title
+      i.material-icons menu   
+      | Main menu
+  .panel-body
+    p
+      a(href='git-status', style='color: #000000;')
+        i.material-icons youtube_searched_for   
+        |  Git Status
+    p
+      a(href='git-pull', style='color: #000000;')
+        i.material-icons cloud_download   
+        |  Pull Code
+    p
+      a(href='git-commit', style='color: #000000;')
+        i.material-icons done_all   
+        |  Commit changes
+    p
+      a(href='git-push', style='color: #000000;')
+        i.material-icons cloud_upload   
+        |  Push Code
+    p
+    p
+      a(href='update_from_local', style='color: #000000;')
+        i.material-icons announcement   
+        |  Apply Files
+    p#sync-button
+      a(href='#', style='color: #000000;')
+        i.material-icons description   
+        |  Generate Files
+    p
+      a(href='revisions', style='color: #000000;')
+        i.material-icons extension   
+        |  Revisions(beta)
+    li.dropdown(style='list-style:none;')
+      a.dropdown-toggle(style='color: #000000;', data-toggle='dropdown', href='bootstrap-elements.html', data-target='#')
+        i.material-icons compare_arrows   
+        |  Compare 
+        span.caret
+      ul.dropdown-menu
+        li
+          a(href='compare_with_dev')
+            i.material-icons code   
+            |  with development
+        li.divider
+        li
+          a(href='compare_with_master')
+            i.material-icons code   
+            |  with master

@@ -1,0 +1,27 @@
+doctype html
+html
+  head
+    link(rel='stylesheet', href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css')
+    link(rel='stylesheet', type='text/css', href='stylesheets/custom-stylesheet.css')
+    link(rel='stylesheet', type='text/css', href='stylesheets/simple-sidebar.css')
+    link(rel='stylesheet', type='text/css', href='https://fonts.googleapis.com/icon?family=Material+Icons')
+    script(src='http://code.jquery.com/jquery-3.2.1.min.js', crossorigin='anonymous')
+    script(type='text/javascript', src='https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.5/umd/popper-utils.min.js')
+    // Data Tables
+    link(rel='stylesheet', type='text/css', href='http://cdn.datatables.net/1.10.16/css/jquery.dataTables.css')
+    script(type='text/javascript', charset='utf8', src='http://cdn.datatables.net/1.10.16/js/jquery.dataTables.js')
+    script(src='javascripts/all-users.js')
+    title My Web Page
+  body
+    #navbar
+      script.
+        $("#navbar").load("navbar");
+    #sidebar
+      script.
+        $("#sidebar").load("sidebar");
+    .container
+      .alert.alert-dismissible.alert-success
+        button.close(type='button', data-dismiss='alert') ×
+        strong
+          p Done...!
+        p User created
