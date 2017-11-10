@@ -3,7 +3,7 @@
 }
 
 body {
-	background-color: #545349;
+	background-color: #273E47;
 }
 
 .container {
@@ -22,3 +22,7 @@ body {
 	margin-top: 30%;
 }
 
+#login-title {
+	color: #D8C99B;
+	font-family: 'Open Sans Condensed';
+}
