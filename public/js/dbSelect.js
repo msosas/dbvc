@@ -1,5 +1,6 @@
 $(document).ready(function() { 
-  
+  var SERVER2 = "localhost";
+  var NODEPORT2 = 3000;
   $.get("http://" + SERVER + ":" + NODEPORT + "/check", function() {
 
     $.get("http://" + SERVER + ":" + NODEPORT + "/get_db", function(data) {
@@ -54,7 +55,7 @@ $(document).ready(function() {
           $("#myTabContent").prepend('<div class="alert alert-dismissible alert-danger"><button type="button" class="close" data-dismiss="alert">×</button><strong><p>Oops..!</p></strong> <p>Something went wrong...</p></div>');
         })
       });
-      $.get("http://" + SERVER + ":" + NODEPORT + "/get_user", function(data) {
+      $.get("http://" + SERVER2 + ":" + NODEPORT2 + "/get-user", function(data) {
         $("#navbar-user-name").append('<a><i class="material-icons">perm_identity &nbsp; </i> ' + data + '</a>');
       });
 

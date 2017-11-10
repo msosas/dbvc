@@ -31,6 +31,8 @@ var revisions = require('./routes/revisions');
 var compareDev = require('./routes/compare-dev');
 var compareMaster = require('./routes/compare-master');
 
+var getUser = require('./routes/get-user');
+
 
 
 var configDB = require('./models/database.js');
@@ -93,6 +95,8 @@ app.use('/apply-files',applyFiles);
 app.use('/revisions',revisions);
 app.use('/compare-with-dev',compareDev);
 app.use('/compare-with-master',compareMaster);
+
+app.use('/get-user',getUser);
 
 
 /// error handlers
