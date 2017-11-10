@@ -28,6 +28,8 @@ var gitPush = require('./routes/git-push');
 var gitCommit = require('./routes/git-commit');
 var applyFiles = require('./routes/apply-files');
 var revisions = require('./routes/revisions');
+var compareDev = require('./routes/compare-dev');
+var compareMaster = require('./routes/compare-master');
 
 
 
@@ -45,7 +47,7 @@ var app = express();
 // passport configuration
 
 app.use(passport.initialize());
-    // used to serialize the user for the session
+    // used to serialize the user in the session
 passport.serializeUser(function(user, done) {
     done(null, user.id);
 });
@@ -89,6 +91,8 @@ app.use('/git-push',gitPush);
 app.use('/git-commit',gitCommit);
 app.use('/apply-files',applyFiles);
 app.use('/revisions',revisions);
+app.use('/compare-with-dev',compareDev);
+app.use('/compare-with-master',compareMaster);
 
 
 /// error handlers
