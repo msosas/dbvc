@@ -373,3 +373,36 @@ tr {
 .tab-content:hover .progress-bar {
   width: 100%;
 }
+
+/* Custom Settings */
+.panel.panel-primary > .panel-heading {
+    background-color: #D8973C;
+    color: #273E47;
+}
+
+.navbar, .navbar.navbar-default {
+    background-color: #D8973C;
+}
+
+.navbar .navbar-nav > li > a { 
+    color: #273E47;
+}
+
+.navbar .navbar-nav > .enabled {
+    color: #D8973C;
+    font-weight: bold;
+}
+
+.navbar .navbar-nav > .enabled:hover {
+    color: #273E47; ;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.navbar .navbar-nav > .disabled  {
+    color: #D8C99B; 
+}
+
+.panel.panel-info > .panel-heading {
+    background-color: #273E47;
+}
