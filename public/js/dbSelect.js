@@ -56,7 +56,14 @@ $(document).ready(function() {
         })
       });
       $.get("http://" + SERVER2 + ":" + NODEPORT2 + "/get-user", function(data) {
-        $("#navbar-user-name").append('<a><i class="material-icons">perm_identity &nbsp; </i> ' + data + '</a>');
+        var vm = new Vue({
+          el: "#navbar-user-name",
+          data: {
+            userName: data
+          }
+        });
+
+        //$("#navbar-user-name").append(data);
       });
 
       $("#sync-button").click(function(data) {
