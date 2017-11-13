@@ -1,5 +1,7 @@
 $(document).ready(function() { 
   // ---------------  Request table content ---------------------------
+  htmlErrMsg = '<div class="alert alert-dismissible alert-danger"><button type="button" class="close" data-dismiss="alert">×</button><strong><p>Oops..!</p></strong> <p>Something went wrong...</p><span id="error"></span></div>'
+  htmlNoFilesMsg = '<p style="margin-left: 45%; margin-top:17%;">No files</p>';
   $(".jumbotron").hide();
 
   $.getJSON( "http://" + SERVER + ":" + NODEPORT + "/compare_with_dev", function( data ) {   
@@ -8,13 +10,14 @@ $(document).ready(function() {
       $(".jumbotron").show();
     }); 
     if (data.code != undefined) {
-      $("#myTabContent").prepend('<div class="alert alert-dismissible alert-danger"><button type="button" class="close" data-dismiss="alert">×</button><strong><p>Oops..!</p></strong> <p>Something went wrong...</p>Error: ' + data.code + '</div>');
+      $("#myTabContent").prepend(htmlErrMsg);
+      $("#error").prepend("Error: " + data.code);
       $(".jumbotron").hide();
     }
     else { 
       var noSqlFiles = true;    
       if (data.length == 0 ) {
-        $(".status_content").append("<p style='margin-left: 45%; margin-top:17%;'>No files</p>");
+        $(".status_content").append(htmlNoFilesMsg);
       }
       else { 
         for (var i = 0; i < data.length; i++) {
@@ -36,7 +39,7 @@ $(document).ready(function() {
           }
         }
         if(noSqlFiles) {
-          $(".status_content").append("<p style='margin-left: 45%; margin-top:17%;'>No files</p>");
+          $(".status_content").append(htmlNoFilesMsg);
         }
       }       
     }

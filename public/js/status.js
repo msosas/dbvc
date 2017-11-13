@@ -1,5 +1,7 @@
 $(document).ready(function() { 
   // ---------------  Request data ---------------------------
+  htmlErrMsg = '<div class="alert alert-dismissible alert-danger"><button type="button" class="close" data-dismiss="alert">×</button><strong><p>Oops..!</p></strong> <p>Something went wrong...</p></div>';
+  htmlNoChanges = '<p style="margin-left: 45%; margin-top:17%;">No Changes</p>';
   $(".jumbotron").hide();
 
   $.getJSON( "http://" + SERVER + ":" + NODEPORT + "/status_raw").done(function(data) {
@@ -8,7 +10,7 @@ $(document).ready(function() {
     $(".jumbotron").show();
     var noSqlFiles = true;
     if (data.length == 0 ) {
-      $(".status_content").append("<p style='margin-left: 45%; margin-top:17%;'>No Changes</p>");
+      $(".status_content").append(htmlNoChanges);
     }
     else { 
       for (var i = 0; i < data.length; i++) {
@@ -30,7 +32,7 @@ $(document).ready(function() {
         }
       }
       if(noSqlFiles) {
-        $(".status_content").append("<p style='margin-left: 45%; margin-top:17%;'>No Changes</p>");
+        $(".status_content").append();
       }
     }  
 
@@ -56,7 +58,7 @@ $(document).ready(function() {
     });
   })
   .fail(function () {
-    $("#myTabContent").prepend('<div class="alert alert-dismissible alert-danger"><button type="button" class="close" data-dismiss="alert">×</button><strong><p>Oops..!</p></strong> <p>Something went wrong...</p></div>');
+    $("#myTabContent").prepend(htmlErrMsg);
   });
 });
 

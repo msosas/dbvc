@@ -1,10 +1,13 @@
 $(document).ready(function() { 
+  htmlScsMsg = '<div class="alert alert-dismissible alert-success"><button type="button" class="close" data-dismiss="alert">×</button><strong><p>Done!</p></strong> <p>Your code was push</p></div>';
+  htmlErrMsg = '<div class="alert alert-dismissible alert-danger"><button type="button" class="close" data-dismiss="alert">×</button><strong><p>Oops..!</p></strong> <p>Something went wrong...</p><span id="error"></span></div>';
   // ---------------  Request branches ---------------------------
 
   $(".jumbotron").hide();
   $.getJSON( "http://" + SERVER + ":" + NODEPORT + "/branch", function( data ) {  
     if (data.code != undefined) {
-      $("#myTabContent").prepend('<div class="alert alert-dismissible alert-danger"><button type="button" class="close" data-dismiss="alert">×</button><strong><p>Oops..!</p></strong> <p>Something went wrong...</p> Error: ' + data.code + ' </div>');
+      $("#myTabContent").prepend(htmlErrMsg);
+      $("#error").prepend("Error: " + data.code);
     } 
     else {
       $.when(data).done(function(){
@@ -26,10 +29,11 @@ $(document).ready(function() {
 
           $.post("http://" + SERVER + ":" + NODEPORT + "/push", { localBranch: $("#selected-branch").val() }, function(data) {
             if (data.code != undefined) {
-              $("#myTabContent").prepend('<div class="alert alert-dismissible alert-danger"><button type="button" class="close" data-dismiss="alert">×</button><strong><p>Oops..!</p></strong> <p>Something went wrong...</p> Error: ' + data.code + ' </div>');
+              $("#myTabContent").prepend(htmlErrMsg);
+              $("#error").prepend("Error: " + data.code);
             }
             else {
-              $("#myTabContent").prepend('<div class="alert alert-dismissible alert-success"><button type="button" class="close" data-dismiss="alert">×</button><strong><p>Done!</p></strong> <p>Your code was push</p></div>');
+              $("#myTabContent").prepend(htmlScsMsg);
             }
           });       
         });
